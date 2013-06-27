@@ -1,0 +1,11 @@
+{
+  "name": "mankees-update_deps",
+  "private": true,
+  "description": "Updates package.json dependencies to the newest",
+  "author": "Juho Vepsalainen <bebraw@gmail.com>",
+  "version": "0.1.0",
+  "dependencies": {
+    "request": "2.21.0",
+    "async": "0.2.9"
+  }
+}

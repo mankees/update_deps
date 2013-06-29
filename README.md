@@ -1,3 +1,3 @@
-# Updates package.json dependencies
+# Update package.json Dependencies
 
 This simple [mankees](https://github.com/bebraw/mankees) plugin takes a peek at your `package.json` dependencies and devDependencies and updates them to the newest.

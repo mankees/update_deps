@@ -1,11 +1,23 @@
 {
   "name": "mankees-update_deps",
-  "private": true,
   "description": "Updates package.json dependencies to the newest",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
   "version": "0.3.0",
   "dependencies": {
     "request": "2.21.0",
     "async": "0.2.9"
-  }
+  },
+  "keywords": [
+    "mankees"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mankees/update_deps.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mankees/update_deps/blob/master/LICENSE"
+    }
+  ]
 }

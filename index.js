@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+'use strict';
+
 var fs = require('fs');
 
 var async = require('async');
@@ -17,7 +19,9 @@ function execute() {
         fetchVersions(packageData, 'devDependencies')
     ], function(err, data) {
         data.forEach(function(v) {
-            if(v.name in packageData) packageData[v.name] = v.data;
+            if(v.name in packageData) {
+                packageData[v.name] = v.data;
+            }
         });
 
         console.log('Update dependencies');
@@ -33,7 +37,9 @@ function fetchVersions(data, key) {
                 url:'http://registry.npmjs.org/' + name + '/latest',
                 json: true
             }, function(err, req, data) {
-                if(err) return cb(err);
+                if(err) {
+                    return cb(err);
+                }
 
                 cb(null, {name: name, version: data.version});
             });

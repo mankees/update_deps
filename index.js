@@ -55,7 +55,7 @@ function fetchVersions(data, key) {
         var ret = {};
 
         d.forEach(function(v) {
-            ret[v.name] = v.version + '^';
+            ret[v.name] = '^' + v.version;
         });
 
         return ret;

@@ -18,6 +18,10 @@ function execute() {
         fetchVersions(packageData, 'dependencies'),
         fetchVersions(packageData, 'devDependencies')
     ], function(err, data) {
+        if(err) {
+            return console.error(err);
+        }
+
         data.forEach(function(v) {
             if(v.name in packageData) {
                 packageData[v.name] = v.data;
@@ -30,21 +34,22 @@ function execute() {
     });
 }
 
-function fetchVersions(data, key) {
-    return function(cb) {
-        async.map(key in data? Object.keys(data[key]): [], function(name, cb) {
-            request.get({
-                url:'http://registry.npmjs.org/' + name + '/latest',
-                json: true
-            }, function(err, req, data) {
-                if(err) {
-                    return cb(err);
-                }
+function fetchVersions(packageData, key) {
+    return function(finalCb) {
+        async.map(key in packageData ? Object.keys(packageData[key]) : [],
+            function(name, cb) {
+                request.get({
+                    url: 'http://registry.npmjs.org/' + name + '/latest',
+                    json: true
+                }, function(err, req, data) {
+                    if(err) {
+                        return cb(err);
+                    }
 
-                cb(null, {name: name, version: data.version});
-            });
+                    cb(null, {name: name, version: data.version});
+                });
         }, function(err, data) {
-            cb(err, {
+            finalCb(err, {
                 name: key,
                 data: toObj(data)
             });

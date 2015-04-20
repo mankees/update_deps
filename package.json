@@ -3,6 +3,8 @@
   "description": "Updates package.json dependencies to the newest",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
   "version": "0.5.1",
+  "bin": "./index.js",
+  "main": "./index.js",
   "dependencies": {
     "request": "2.21.0",
     "async": "0.2.9"

@@ -7,7 +7,12 @@ var async = require('async');
 var request = require('request');
 
 
-module.exports = execute;
+if(require.main === module) {
+    execute();
+}
+else {
+    module.exports = execute;
+}
 
 function execute() {
     console.log('Read dependencies');

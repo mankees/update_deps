@@ -2,7 +2,7 @@
   "name": "mankees-update_deps",
   "description": "Updates package.json dependencies to the newest",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "bin": "./index.js",
   "main": "./index.js",
   "dependencies": {
